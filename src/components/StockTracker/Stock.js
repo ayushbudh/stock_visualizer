@@ -54,7 +54,7 @@ const Stock = () => {
                     stockChartYValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
                 }
 
-            // setting state of the app 
+                     // setting state of the app 
                      if(e.target.value===0){
                          setStockData({stockName: companyNames[StockSymbol], stockSymbol: e.target.value, stockChartXValues: stockChartXValuesFunction, stockChartYValues: stockChartYValuesFunction, stockTitle: e.target.value, display:false });
                        }else{
@@ -120,7 +120,9 @@ const Stock = () => {
         
         const classes = useStyles();
         return(
+            
             <div className={classes.root}>
+            {/* Navbar */}
              <AppBar position="static" className={classes.root} >
                 <Toolbar >
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -147,9 +149,10 @@ const Stock = () => {
                 </Toolbar>
              </AppBar>
 
-
+                 {/* checking if value of display is true or not and showing the respective component according to it */}
                  {!stock.display ?<NoStocksScreen/> : 
                 <div className={classes.line_plot}>
+                    {/* Plot component to graph the line graph using X and Y values fetched from the API. */}
                     <Plot position="static"
                     data={[
                         {

@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
 
 const NoMatchPage = () => { 
-        // to navigate different route
+        // to navigate on different route
         const history = useHistory();
 
         // handling click event
@@ -80,6 +80,7 @@ const NoMatchPage = () => {
         const classes = useStyles();
         return(
             <div className={classes.black}>
+            {/* Navbar */}
              <AppBar position="static" className={classes.root} >
                 <Toolbar >
                 <IconButton edge="start" onClick={handleClick}  className={classes.menuButton} color="inherit" aria-label="menu">

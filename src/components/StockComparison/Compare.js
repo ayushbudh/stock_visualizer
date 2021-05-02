@@ -35,6 +35,7 @@ const Compare = () => {
 
 
         const handleChange = e => {
+          console.log(e.target.value);
               if(e.target.value===0){
                   setDisplay(false);
               }else{
@@ -52,7 +53,7 @@ const Compare = () => {
 
             let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${StockSymbol}&outputsize=compact&apikey=${process.env.API_KEY}`;
             
-            // fetching using the api call
+            // fetching data using the api call
             fetch(API_Call)
             .then(
                 function(response){
@@ -61,6 +62,7 @@ const Compare = () => {
             )
             .then(
                 function(data){
+                  // getting the most recent updated data from the Alpha Vantage API.
                   const earliestRefresedDate = data['Meta Data']['3. Last Refreshed'];
                        setItem([...items, {Name:StockSymbol, High:data['Time Series (Daily)'][earliestRefresedDate]['2. high'],Low:data['Time Series (Daily)']["2021-04-30"]['3. low'] ,OpenPrice:data['Time Series (Daily)']["2021-04-30"]['1. open'], id:uuidv4()}]);
                        if(e.target.value===0){
@@ -71,11 +73,11 @@ const Compare = () => {
                 }
             )
         }
-
+        // for navigation between pages
         const handleClick = () => {
             history.push("/");
         }
-            
+            // styling
             const useStyles = makeStyles((theme) => ({
             root: {
                 backgroundColor: 'black',
@@ -168,8 +170,10 @@ const Compare = () => {
         }));
         
         const classes = useStyles();
+
         return (
           <div className={classes.black} >
+                  {/* Navbar */}
                   <AppBar position="static" className={classes.root}>
                     <Toolbar>
                         <IconButton onClick={handleClick} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -186,7 +190,8 @@ const Compare = () => {
                   </AppBar>
                 <div className={classes.form} position="static">
                 <FormControl className={classes.formControl} style={{minWidth: 80}}>
-                        <TextField defaultValue="" className={classes.text} onChange={(e)=> handleChange(e)} variant="outlined" label="Select Stock" select > 
+                        <TextField defaultValue={0} className={classes.text} onChange={(e)=> handleChange(e)} variant="outlined" label="Select Stock" select > 
+                          <MenuItem value={0}>Choose....</MenuItem>
                           <MenuItem value={'AAPL'}>AAPL</MenuItem>
                           <MenuItem value={'IBM'}>IBM</MenuItem>
                           <MenuItem value={'FB'}>FB</MenuItem>
@@ -201,7 +206,8 @@ const Compare = () => {
                 <Button onClick={addToCompareList}  variant="contained" className={classes.addBtn}> Add </Button>
                 <br/><br/>
             </div>
-              
+            
+            {/* checking if value of display is true or not and showing the respective component according to it */}
             {!display ? <NoStocksScreen/> :
                 <TableContainer className={classes.container} component={Paper} direction="row">
                   <Table className={classes.table} aria-label="customized table">

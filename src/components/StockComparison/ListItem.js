@@ -4,6 +4,7 @@ import {TableBody, TableCell,TableRow}  from "@material-ui/core/";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
+// styling for table
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -27,6 +28,7 @@ const StyledTableRow = withStyles((theme) => ({
   }
 }))(TableRow);
 
+// styling
 const useStyles = makeStyles({
   table: {
     margin:'auto',
@@ -41,6 +43,7 @@ const useStyles = makeStyles({
 
 const ListItem = (props) => {
   const classes = useStyles();  
+  // displaying table body under the table head created in Compare component.
   return (
         <TableBody >
             <StyledTableRow>
