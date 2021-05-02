@@ -1,3 +1,4 @@
+# Stock Visualizer
 
 ## What it does?
 
