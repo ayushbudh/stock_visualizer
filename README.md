@@ -17,7 +17,7 @@ Stock Visualizer is an app that helps to keep track prices of the some of the po
 <ol>
   <li>Download the repository using the <code>code</code> button or clone the repository into your local machine using <code>git clone  https://github.com/ayushbudh/stock_visualizer </code> command in your terminal/command prompt.</li>
   <li>Run <code>npm install</code> to install all node dependencies.</li>
-  <li>Run <code>npm start</code> to run the app locally on your machine</li>
+  <li>Run <code>npm start</code> to run the app locally on your machine.</li>
 </ol>
 
 
