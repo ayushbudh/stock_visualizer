@@ -4,7 +4,7 @@
 
 Stock Visualizer is an app that helps to keep track prices of the some of the popular stocks by using line graph. It also allows to compare prices of two or more stocks and make a better choice from it. 
 
-## How I Build ?
+## What it does ?
 
 <ol>
   <li>Stock Visualizer is build using <code>React.js</code>, <codeMaterial-UI></code>,  <code>Plotly.js</code>, <code>Context API</code> and <code>Alpha Vantage    API</code>.</li>
